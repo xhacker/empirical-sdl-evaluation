@@ -1,0 +1,73 @@
+\documentclass{article}
+
+\usepackage{inconsolata}
+\usepackage{algorithm}
+\usepackage{amsmath}
+\usepackage{graphicx,epsfig}
+\usepackage[noend]{algpseudocode}
+\usepackage[toc,page]{appendix}
+\usepackage{float}
+\usepackage[margin=2cm]{geometry}
+\usepackage{url}
+
+\newcommand{\graphWidth}{11.5cm}
+
+\title{\textbf{An Empirical Evaluation of the Statement Deletion Mutation Operator in Real-World Python Projects}}
+\author{Shan Cao, Dongyuan Liu}
+
+% ATTENTION, READER
+% The filecontents thing here is where you put sources.
+% Then, use, eg, \cite{GP} to cite the @misc{GP... item.
+% This does mean compiling is now 3 steps IF you've added new sources:
+% $ pdflatex report.tex
+% This, as a side effect, generates our bib file.
+% $ bibtex report
+% This compiles the bib file
+% $ pdflatex report.tex
+% This incorporates the new bibliography into the report
+% If you haven't changed sources, just use pdflatex report.tex once, it'll be fine.
+
+\begin{filecontents*}{\jobname.bib}
+\end{filecontents*}
+\bibliographystyle{unsrt}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+
+Many open-source libraries use test coverage as a measurement of test suite quality. However, test coverage only guarantee the code is being executed when running the tests, it does not check that the tests are able to detect real faults. An extreme example is a test suite with no assertions in it.
+
+describe mutation testing ref 1 2 3
+
+mutation testing is slow
+
+using only delete is effective and fast ref 1 2 3
+
+we evaluate on real-world Python projects
+
+\section{Related Work}
+
+\subsection{Our Contribution}
+
+\section{Implementation Details}
+
+\subsection{MutPy}
+
+\subsection{Statement Deletion Mutation Operator}
+
+\section{Empirical Evaluation}
+
+\section{Conclusions}
+
+\subsection{Further Work}
+some thing
+
+\begin{appendices}
+\end{appendices}
+
+\bibliography{\jobname}
+
+\end{document}
