@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage{inconsolata}
 \usepackage{algorithm}
@@ -7,10 +7,27 @@
 \usepackage[noend]{algpseudocode}
 \usepackage[toc,page]{appendix}
 \usepackage{float}
-\usepackage[margin=2cm]{geometry}
+\newcommand{\graphWidth}{11.5cm}
+
+% Custom style start
+
+\usepackage{geometry}
+    \newgeometry{
+        top=1in,
+        left=1.25in,
+        bottom=0.7in,
+        right=1.25in,
+        includefoot
+    }
 \usepackage{url}
 
-\newcommand{\graphWidth}{11.5cm}
+\RequirePackage{setspace}
+\newcommand{\defaultspacing}{\onehalfspacing}
+\newcommand{\smallspacing}{\singlespacing}
+
+\defaultspacing
+
+% Custom style end
 
 \title{\textbf{An Empirical Evaluation of the Statement Deletion Mutation Operator in Real-World Python Projects}}
 \author{Shan Cao, Dongyuan Liu}
@@ -28,9 +45,6 @@
 % If you haven't changed sources, just use pdflatex report.tex once, it'll be fine.
 
 \begin{document}
-
-\bibliographystyle{unsrt}
-\bibliography{references}
 
 \maketitle
 \tableofcontents
@@ -83,6 +97,7 @@ some thing
 \begin{appendices}
 \end{appendices}
 
-\bibliography{\jobname}
+\bibliographystyle{unsrt}
+\bibliography{references}
 
 \end{document}
