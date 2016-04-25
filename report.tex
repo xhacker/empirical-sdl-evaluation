@@ -38,17 +38,19 @@
 
 \section{Introduction}
 
-Many open-source libraries use test coverage as a measurement of test suite quality. However, test coverage only guarantee the code is being executed when running the tests, it does not check that the tests are able to detect real faults. An extreme example is a test suite with no assertions in it.
+Many open-source libraries use test coverage as a measurement of test suite quality. However, test coverage only guarantee the code is being executed when running the tests, it does not check that the tests are able to detect real faults. An extreme example is a test suite without any assertion.
 
-describe mutation testing ref 1 2 3
+To get deeper knowledge of the flaws, running test set against slightly modified versions of programs is one approach\cite{}. This technique is called \emph{mutation testing}. A quality measure, \emph{mutation adequacy score}, is used to assess. The mutants are generated from operations such as insert and delete. However, generating and testing a vast amount of mutants can be slow, therefore the efficiency of each operation should be analyzed to approximate the goal methodically.
 
-mutation testing is slow
+The efficiency and effectiveness of only applying delete operation has been investigated in existing works.
 
 using only delete is effective and fast ref 1 2 3
 
 we evaluate on real-world Python projects
 
 \section{Related Work}
+
+\subsection{Mutation testing}
 
 \subsection{Our Contribution}
 
