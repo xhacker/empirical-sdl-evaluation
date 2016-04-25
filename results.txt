@@ -1,0 +1,243 @@
+https://github.com/ahupp/python-magic
+
+mut.py -o SDL --show-mutants --colored-output --target magic --unit-test test.test
+[*] Mutation score [39.00627 s]: 32.1%
+   - all: 93
+   - killed: 19 (20.4%)
+   - survived: 55 (59.1%)
+   - incompetent: 12 (12.9%)
+   - timeout: 7 (7.5%)
+
+mut.py -e --colored-output --target magic --unit-test test.test
+[*] Mutation score [57.16895 s]: 28.2%
+  - all: 231
+  - killed: 48 (20.8%)
+  - survived: 145 (62.8%)
+  - incompetent: 29 (12.6%)
+  - timeout: 9 (3.9%)
+
+py.test --cov=magic tests/
+0.08s
+Name       Stmts   Miss  Cover
+------------------------------
+magic.py     151     27    82%
+
+
+https://github.com/myusuf3/delorean
+
+mut.py -o SDL --colored-output --target delorean --unit-test tests
+[*] Mutation score [11.64523 s]: 98.0%
+   - all: 150
+   - killed: 147 (98.0%)
+   - survived: 3 (2.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
+
+mut.py -e --colored-output --target delorean --unit-test tests
+[*] Mutation score [52.43741 s]: 98.4%
+  - all: 658
+  - killed: 611 (92.9%)
+  - survived: 10 (1.5%)
+  - incompetent: 37 (5.6%)
+  - timeout: 0 (0.0%)
+
+py.test --cov=delorean tests/delorean_tests.py
+87 passed in 0.29 seconds
+Name                     Stmts   Miss  Cover
+--------------------------------------------
+delorean/__init__.py         4      0   100%
+delorean/dates.py          220     10    95%
+delorean/exceptions.py      10      1    90%
+delorean/interface.py       57      8    86%
+--------------------------------------------
+TOTAL                      291     19    93%
+
+
+
+https://github.com/seatgeek/fuzzywuzzy
+py.test --cov=fuzzywuzzy test_fuzzywuzzy.py
+48 passed in 0.33 seconds
+Name                              Stmts   Miss  Cover
+-----------------------------------------------------
+fuzzywuzzy/StringMatcher.py          52     50     4%
+fuzzywuzzy/__init__.py                1      0   100%
+fuzzywuzzy/fuzz.py                  118      6    95%
+fuzzywuzzy/process.py                54      4    93%
+fuzzywuzzy/string_processing.py      14      0   100%
+fuzzywuzzy/utils.py                  53      9    83%
+-----------------------------------------------------
+TOTAL                               292     69    76%
+
+mut.py -o SDL --colored-output --target fuzzywuzzy --unit-test test_fuzzywuzzy
+[*] Mutation score [12.34080 s]: 64.9%
+   - all: 168
+   - killed: 85 (50.6%)
+   - survived: 46 (27.4%)
+
+   - timeout: 0 (0.0%)
+
+mut.py -e --colored-output --target fuzzywuzzy --unit-test test_fuzzywuzzy
+[*] Mutation score [43.97750 s]: 52.5%
+ - all: 502
+ - killed: 212 (42.2%)
+ - survived: 192 (38.2%)
+ - incompetent: 98 (19.5%)
+ - timeout: 0 (0.0%)
+
+
+https://github.com/vinta/pangu.py
+
+py.test --cov=pangu test_pangu.py
+45 passed in 0.20 seconds
+ Name       Stmts   Miss  Cover
+ ------------------------------
+ pangu.py      53      4    92%
+
+mut.py -e --colored-output --target pangu --unit-test test_pangu
+[*] Mutation score [2.62526 s]: 80.5%
+- all: 128
+- killed: 99 (77.3%)
+- survived: 24 (18.8%)
+- incompetent: 5 (3.9%)
+- timeout: 0 (0.0%)
+
+mut.py -o SDL --colored-output --target pangu --unit-test test_pangu
+[*] Mutation score [0.68407 s]: 85.0%
+   - all: 42
+   - killed: 34 (81.0%)
+   - survived: 6 (14.3%)
+   - incompetent: 2 (4.8%)
+   - timeout: 0 (0.0%)
+
+
+https://github.com/stochastic-technologies/shortuuid
+15 passed in 0.28 seconds
+Name                Stmts   Miss  Cover
+---------------------------------------
+shortuuid/main.py      63      0   100%
+
+mut.py -o SDL --colored-output --target shortuuid.main --unit-test shortuuid.tests
+[*] Mutation score [1.37563 s]: 100.0%
+   - all: 35
+   - killed: 27 (77.1%)
+   - survived: 0 (0.0%)
+   - incompetent: 8 (22.9%)
+   - timeout: 0 (0.0%)
+
+mut.py -e --colored-output --target shortuuid.main --unit-test shortuuid.tests
+[*] Mutation score [11.57458 s]: 100.0%
+  - all: 132
+  - killed: 97 (73.5%)
+  - survived: 0 (0.0%)
+  - incompetent: 34 (25.8%)
+  - timeout: 1 (0.8%)
+
+
+https://github.com/un33k/python-slugify
+23 passed in 0.09 seconds
+Name                  Stmts   Miss  Cover
+-----------------------------------------
+slugify/__init__.py       4      0   100%
+slugify/slugify.py       87     16    82%
+-----------------------------------------
+TOTAL                    91     16    82%
+
+mut.py -e --colored-output --target slugify --unit-test test
+[*] Mutation score [5.54187 s]: 58.3%
+   - all: 177
+   - killed: 95 (53.7%)
+   - survived: 68 (38.4%)
+   - incompetent: 14 (7.9%)
+   - timeout: 0 (0.0%)
+
+mut.py -o SDL --colored-output --target slugify --unit-test test
+[*] Mutation score [1.21796 s]: 55.6%
+   - all: 45
+   - killed: 25 (55.6%)
+   - survived: 20 (44.4%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
+
+
+https://github.com/derek73/python-nameparser
+248 passed, 2 skipped, 11 xfailed in 0.74 seconds
+Name                                  Stmts   Miss  Cover
+---------------------------------------------------------
+nameparser/__init__.py                    7      0   100%
+nameparser/config/__init__.py            83     17    80%
+nameparser/config/capitalization.py       3      0   100%
+nameparser/config/conjunctions.py         3      0   100%
+nameparser/config/prefixes.py             2      0   100%
+nameparser/config/regexes.py              4      0   100%
+nameparser/config/suffixes.py             5      0   100%
+nameparser/config/titles.py               3      0   100%
+nameparser/parser.py                    336     18    95%
+nameparser/util.py                       27     11    59%
+---------------------------------------------------------
+TOTAL                                   473     46    90%
+
+[*] Mutation score [4.14812 s]: 37.5%
+   - all: 213
+   - killed: 9 (4.2%)
+   - survived: 15 (7.0%)
+   - incompetent: 189 (88.7%)
+   - timeout: 0 (0.0%)
+
+[*] Mutation score [189.72242 s]: 43.2%
+  - all: 2115
+  - killed: 506 (23.9%)
+  - survived: 664 (31.4%)
+  - incompetent: 945 (44.7%)
+  - timeout: 0 (0.0%)
+
+
+https://github.com/waylan/Python-Markdown
+129 passed in 1.20 seconds
+Name                                  Stmts   Miss  Cover
+---------------------------------------------------------
+markdown/__init__.py                    194     44    77%
+markdown/__main__.py                     44      0   100%
+markdown/blockparser.py                  30      0   100%
+markdown/blockprocessors.py             277    139    50%
+markdown/extensions/__init__.py          36      6    83%
+markdown/extensions/abbr.py              38      0   100%
+markdown/extensions/admonition.py        45     26    42%
+markdown/extensions/attr_list.py         96     37    61%
+markdown/extensions/codehilite.py        98      8    92%
+markdown/extensions/def_list.py          59     59     0%
+markdown/extensions/extra.py             54     54     0%
+markdown/extensions/fenced_code.py       48      0   100%
+markdown/extensions/footnotes.py        179    121    32%
+markdown/extensions/headerid.py          52      1    98%
+markdown/extensions/meta.py              41      0   100%
+markdown/extensions/nl2br.py             11     11     0%
+markdown/extensions/sane_lists.py        21     21     0%
+markdown/extensions/smart_strong.py      12     12     0%
+markdown/extensions/smarty.py            88      0   100%
+markdown/extensions/tables.py            87     87     0%
+markdown/extensions/toc.py              167     11    93%
+markdown/extensions/wikilinks.py         49      0   100%
+markdown/inlinepatterns.py              237     96    59%
+markdown/odict.py                       113     37    67%
+markdown/postprocessors.py               54      5    91%
+markdown/preprocessors.py               209    113    46%
+markdown/serializers.py                 153     57    63%
+markdown/treeprocessors.py              187     14    93%
+markdown/util.py                         59      4    93%
+---------------------------------------------------------
+TOTAL                                  2738    963    65%
+
+mut.py -o SDL --colored-output --target markdown --unit-test tests.test_apis tests.test_extensions
+[*] Mutation score [19.31680 s]: 55.1%
+   - all: 1499
+   - killed: 43 (2.9%)
+   - survived: 35 (2.3%)
+   - incompetent: 1421 (94.8%)
+   - timeout: 0 (0.0%)
+
+[*] Mutation score [1887.72887 s]: 29.1%
+  - all: 7021
+  - killed: 1776 (25.3%)
+  - survived: 4440 (63.2%)
+  - incompetent: 761 (10.8%)
+  - timeout: 44 (0.6%)

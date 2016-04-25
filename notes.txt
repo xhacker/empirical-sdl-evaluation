@@ -1,21 +1,52 @@
+# Python
+
+https://github.com/soimort/you-get
+https://github.com/tflearn/tflearn.git
+https://github.com/donnemartin/haxor-news
+https://github.com/airbnb/caravel
+
+https://github.com/django/django
+https://github.com/scrapy/scrapy
+https://github.com/scikit-learn/scikit-learn
+
+## MutPy
+
+```bash
 -o SDL
 mut.py --colored-output --show-mutants --target example.simple --unit-test example.test.simple_good_test
+```
 
-Python
-https://github.com/scrapy/scrapy
-https://github.com/jkbrzt/httpie
-mut.py --colored-output --target httpie --unit-test tests
-https://github.com/scikit-learn/scikit-learn
-https://github.com/pytest-dev/pytest/
-https://github.com/pallets/flask (82)
+## mistune
+
 https://github.com/lepture/mistune
+
+```bash
+coverage run --source=mistune setup.py -q nosetests
+coverage report
 mut.py --colored-output --target mistune --unit-test tests
+```
 
-No idea yet:
-https://github.com/pallets/jinja
-https://github.com/sphinx-doc/sphinx
-https://github.com/kennethreitz/requests/
+## httpie
 
-JS
+https://github.com/jkbrzt/httpie
+
+```bash
+mut.py --colored-output --target httpie --unit-test tests
+```
+
+## Flask
+
+https://github.com/pallets/flask
+
+```bash
+mut.py --colored-output --target flask --unit-test tests
+```
+
+## No idea yet:
+* https://github.com/pallets/jinja
+* https://github.com/sphinx-doc/sphinx
+* https://github.com/kennethreitz/requests/
+
+# JS
 https://github.com/gotwarlost/istanbul
 https://github.com/moment/moment/
