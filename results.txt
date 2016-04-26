@@ -241,3 +241,44 @@ mut.py -o SDL --colored-output --target markdown --unit-test tests.test_apis tes
   - survived: 4440 (63.2%)
   - incompetent: 761 (10.8%)
   - timeout: 44 (0.6%)
+
+
+https://github.com/andialbrecht/sqlparse
+204 passed in 8.49 seconds
+Name                          Stmts   Miss  Cover
+-------------------------------------------------
+sqlparse/__init__.py             27      3    89%
+sqlparse/compat.py               20      6    70%
+sqlparse/engine/__init__.py      54      0   100%
+sqlparse/engine/filter.py        67      0   100%
+sqlparse/engine/grouping.py     252      8    97%
+sqlparse/exceptions.py            2      0   100%
+sqlparse/filters.py             476     61    87%
+sqlparse/formatter.py            87      9    90%
+sqlparse/functions.py            22      2    91%
+sqlparse/keywords.py              3      0   100%
+sqlparse/lexer.py               195     63    68%
+sqlparse/pipeline.py             10      0   100%
+sqlparse/sql.py                 379     41    89%
+sqlparse/tokens.py               53      8    85%
+sqlparse/utils.py                44      7    84%
+-------------------------------------------------
+TOTAL                          1691    208    88%
+
+mut.py -o SDL --colored-output --target sqlparse --unit-test tests.test_filters tests.test_format tests.test_functions tests.test_grouping tests.test_parse tests.test_pipeline tests.test_regressions tests.test_split tests.test_tokenize
+[*] Mutation score [97.44794 s]: 86.5%
+   - all: 861
+   - killed: 203 (23.6%)
+   - survived: 32 (3.7%)
+   - incompetent: 624 (72.5%)
+   - timeout: 2 (0.2%)
+
+mut.py -e --colored-output --target sqlparse --unit-test tests.test_filters tests.test_format tests.test_functions tests.test_grouping tests.test_parse tests.test_pipeline tests.test_regressions tests.test_split tests.test_tokenize
+[*] Mutation score [648.03047 s]: 93.4%
+   - all: 4712
+   - killed: 897 (19.0%)
+   - survived: 64 (1.4%)
+   - incompetent: 3742 (79.4%)
+   - timeout: 9 (0.2%)
+
+
