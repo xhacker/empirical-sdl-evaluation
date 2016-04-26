@@ -69,9 +69,52 @@ we evaluate on real-world Python projects
 
 \subsection{MutPy}
 
-\emph{MutPy} is a mutation testing tool for Python projects \cite{mutpy}.
+\emph{MutPy} is a mutation testing tool for Python projects \cite{mutpy}. We use MutPy for our evaluation.
+
+MutPy loads the module to be mutated, transforms it into Python AST, applies mutation operators at the AST level, generates Python code from the AST, and runs the test suite for each mutant.
+
+Following is the list of MutPy mutation operators, in alphabetical order.
+
+\begin{itemize}
+  \itemsep0em 
+  \item \texttt{AOD} - arithmetic operator deletion
+  \item \texttt{AOR} - arithmetic operator replacement
+  \item \texttt{ASR} - assignment operator replacement
+  \item \texttt{BCR} - break continue replacement
+  \item \texttt{COD} - conditional operator deletion
+  \item \texttt{COI} - conditional operator insertion
+  \item \texttt{CRP} - constant replacement
+  \item \texttt{DDL} - decorator deletion
+  \item \texttt{EHD} - exception handler deletion
+  \item \texttt{EXS} - exception swallowing
+  \item \texttt{IHD} - hiding variable deletion
+  \item \texttt{IOD} - overriding method deletion
+  \item \texttt{IOP} - overridden method calling position change
+  \item \texttt{LCR} - logical connector replacement
+  \item \texttt{LOD} - logical operator deletion
+  \item \texttt{LOR} - logical operator replacement
+  \item \texttt{ROR} - relational operator replacement
+  \item \texttt{SCD} - super calling deletion
+  \item \texttt{SCI} - super calling insert
+  \item \texttt{SIR} - slice index remove
+\end{itemize}
+
+MutPy also supports some experimental mutation operators:
+
+\begin{itemize}
+  \itemsep0em 
+  \item \texttt{CDI} - classmethod decorator insertion
+  \item \texttt{OIL} - one iteration loop
+  \item \texttt{RIL} - reverse iteration loop
+  \item \texttt{SDI} - staticmethod decorator insertion
+  \item \texttt{SDL} - statement deletion
+  \item \texttt{SVD} - self variable deletion
+  \item \texttt{ZIL} - zero iteration loop
+\end{itemize}
 
 \subsection{Statement Deletion Mutation Operator}
+
+In Python, \texttt{pass} is a statement that does nothing. MutPy's SDL operator changes each \emph{assign}, \emph{return}, and \emph{expression} in AST to \texttt{pass} statement.
 
 \section{Empirical Evaluation}
 
