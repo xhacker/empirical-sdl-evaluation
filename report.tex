@@ -253,7 +253,7 @@ One scenario we can think of is using mutation testing as a pre-commit hook. Bef
 
 Untch \cite{untch2009reduced} and Deng \cite{deng2013empirical}'s researches show that the statement deletion operator (SDL) is very effective when performing mutation testing. We extended from their work, evaluated SDL operator on real-world Python projects using MutPy.
 
-Our evaluation shows that although SDL-mutation takes significant less amount of time compared to full mutation testing, their mutation scores have a high correlation. In our experiments, SDL-mutation only take \textbf{6.46\%} of the time in average compared to full mutation testing. We also proposed an idea to reduce the time usage for SDL-mutation even further.
+Our evaluation shows that in real-world Python projects, SDL-mutation also shows its effectiveness. In our experiments, SDL-mutation score is strongly correlated with full mutation score, while SDL-mutation only take \textbf{6.46\%} of the time in average compared to full mutation testing. We also proposed an idea to reduce the time usage for SDL-mutation even further.
 
 The idea of using one selective operator (SDL) in mutation testing is very interesting. We think that the experiment should be expanded to more and larger Python projects. To support a larger experiment, we would like to see some improvements on test loading to MutPy.
 
