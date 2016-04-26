@@ -62,13 +62,13 @@ The previous work we mentioned are all based on the tests created by the researc
 
 \section{MutPy}
 
-\emph{MutPy} is a mutation testing tool for Python projects \cite{mutpy}. We use MutPy for our evaluation.
+\subsection{Design}
+\emph{MutPy} is a mutation testing tool for Python projects \cite{mutpy}. We use it to compute and compare the result of SDL and experimental mutation. This tool has not received any updates since 2014. To make it compatible to recent libraries, we updated it to support Python 3.5 and fixed some issues in loading unit tests before starting the experiment. The version we are using is in this forked repository.
 
-MutPy has not received any updates since 2014. We have updated it to support Python 3.5, and fixed some issues regarding loading unit tests.
+The process of MutPy is as follows: loads the module to be mutated, transforms it into Python AST, applies mutation operators at the AST level, generates Python code from the AST, and runs the test suite for each mutant. The statement deletion operator is implemented rather simply. It changes each \emph{assign}, \emph{return}, and \emph{expression} statements in AST to \texttt{pass} statement which does nothing. This may result in limitation of validity in the result, since there should more considerations for various cases in loops and condition blocks. For example, deleting an \texttt{if} block is equivalent to mutate it to \texttt{if False:}, which results in the \texttt{else} block being executed. However this implementation can also be viewed as a choice of design, therefore we chose not to modify it.
 
-MutPy loads the module to be mutated, transforms it into Python AST, applies mutation operators at the AST level, generates Python code from the AST, and runs the test suite for each mutant.
-
-Following is the list of MutPy mutation operators, in alphabetical order.
+\subsection{Operators}
+We compared using SDL operator only with using all operators. The other mutation operators MutPy supports are listed below. These operators generate more mutants for testing thus usually result in better overall mutation scores.
 
 \begin{itemize}
   \itemsep0em 
@@ -106,10 +106,6 @@ MutPy also supports some experimental mutation operators:
   \item \texttt{SVD} - self variable deletion
   \item \texttt{ZIL} - zero iteration loop
 \end{itemize}
-
-\subsection{Statement Deletion Mutation Operator}
-
-In Python, \texttt{pass} is a statement that does nothing. MutPy's SDL operator changes each \emph{assign}, \emph{return}, and \emph{expression} in AST to \texttt{pass} statement.
 
 \section{Evaluation}
 
