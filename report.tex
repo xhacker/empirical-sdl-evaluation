@@ -55,7 +55,7 @@ Using deletion operator only is a do-fewer approach. Untch's experiment across f
 
 \subsection{Our Contribution}
 
-we evaluate on real-world Python projects
+Instead of using small programs and hand-generated tests, we evaluate on real world Python projects and their test suites. Therefore, our evaluation is helpful for real world developers who want to evaluate their test suite quality.
 
 \section{MutPy}
 
@@ -108,7 +108,7 @@ MutPy also supports some experimental mutation operators:
 
 In Python, \texttt{pass} is a statement that does nothing. MutPy's SDL operator changes each \emph{assign}, \emph{return}, and \emph{expression} in AST to \texttt{pass} statement.
 
-\section{Empirical Evaluation}
+\section{Evaluation}
 
 \subsection{Methodology}
 
@@ -145,6 +145,30 @@ python-slugify    & 425   & Returns unicode slugs \\
 python-nameparser & 4027  & Parse human names into individual components \\
 python-markdown   & 8199  & A Python implementation of John Gruber’s Markdown \\
 sqlparse          & 19434 & A non-validating SQL parser module for Python \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+Table \ref{table:score} shows the mutation score using all operators, the mutation score using only SDL, and the test coverage.
+
+\begin{table}[H]
+\begin{center}
+\caption{Mutation score for all operators and SDL operator}
+\label{table:score}
+\begin{tabular}{|l|r|r|r|}
+\hline
+{\bf Project} & {\bf Score (All)} & {\bf Score (SDL)} & {\bf Test Coverage} \\
+\hline
+python-magic      & 28.2\%  &  32.1\% &  82\% \\
+Delorean          & 98.4\%  &  98.0\% &  93\% \\
+FuzzyWuzzy        & 52.5\%  &  64.9\% &  76\% \\
+pangu.py          & 80.5\%  &  85.0\% &  92\% \\
+shortuuid         & 100.0\% & 100.0\% & 100\% \\
+python-slugify    & 58.3\%  &  55.6\% &  82\% \\
+python-nameparser & 43.2\%  &  37.5\% &  90\% \\
+python-markdown   & 29.1\%  &  55.1\% &  65\% \\
+sqlparse          & 93.4\%  &  86.5\% &  88\% \\
 \hline
 \end{tabular}
 \end{center}
