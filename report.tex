@@ -3,7 +3,8 @@
 \usepackage{inconsolata}
 \usepackage{algorithm}
 \usepackage{amsmath}
-\usepackage{graphicx,epsfig}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
 \usepackage[noend]{algpseudocode}
 \usepackage[toc,page]{appendix}
 \usepackage{float}
@@ -150,7 +151,9 @@ sqlparse          & 19434 & A non-validating SQL parser module for Python \\
 \end{center}
 \end{table}
 
-Table \ref{table:score} shows the mutation score using all operators, the mutation score using only SDL, and the test coverage.
+Table \ref{table:score} shows the mutation score using all operators, the mutation score using only SDL, and the test coverage. Figure \ref{fig:score} shows a rough comparison between the mutation score for all operators, for SDL operator, and the test coverage.
+
+Table \ref{table:time} shows the time usage for running mutation testing using MutPy, using all operators and SDL operator. It also shows the time usage for generating coverage report in the last column for reference. Figure \ref{fig:time} shows the comparison of time usage between mutation testing using all operators and mutation testing using only SDL operator.
 
 \begin{table}[H]
 \begin{center}
@@ -173,6 +176,44 @@ sqlparse          & 93.4\%  &  86.5\% &  88\% \\
 \end{tabular}
 \end{center}
 \end{table}
+
+\begin{figure}[H]
+\begin{center}
+\caption{Mutation score for all operators and SDL operator}
+\label{fig:score}
+\includegraphics[width=15cm]{score}
+\end{center}
+\end{figure}
+
+\begin{table}[H]
+\begin{center}
+\caption{Time usage of mutation testing and coverage}
+\label{table:time}
+\begin{tabular}{|l|r|r|r|}
+\hline
+{\bf Project} & {\bf MutPy (All)} & {\bf MutPy (SDL)} & {\bf Coverage} \\
+\hline
+python-magic      &   57.17s & 39.01s & 0.08s \\
+Delorean          &   52.44s & 11.65s & 0.29s \\
+FuzzyWuzzy        &   43.98s & 12.34s & 0.33s \\
+pangu.py          &    2.63s &  0.68s & 0.20s \\
+shortuuid         &   11.57s &  1.38s & 0.28s \\
+python-slugify    &    5.54s &  1.22s & 0.09s \\
+python-nameparser &  189.72s &  4.15s & 0.74s \\
+python-markdown   & 1887.73s & 19.32s & 1.20s \\
+sqlparse          &  648.03s & 97.45s & 8.49s \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+\caption{Comparison of time usage between all operators and SDL operator}
+\label{fig:time}
+\includegraphics[width=15cm]{time}
+\end{center}
+\end{figure}
 
 \section{Future Work}
 
