@@ -44,15 +44,13 @@
 
 Many open-source libraries use test coverage as a measurement of test suite quality. However, test coverage only guarantee the code is being executed when running the tests, it does not check that the tests are able to detect real faults. An extreme example is a test suite without any assertion.
 
-To get deeper knowledge of the flaws, running test set against slightly modified versions of programs is one approach\cite{}. This technique is called \emph{mutation testing}. A quality measure, \emph{mutation adequacy score}, is used to assess. The mutants are generated from operations such as insert and delete. However, generating and testing a vast amount of mutants can be slow, therefore the efficiency of each operation should be analyzed to approximate the goal methodically.
-
-using only delete is effective and fast ref 1 2 3
+To get deeper knowledge of the flaws, running test set against slightly modified versions of programs is one approach \cite{demillo1978hints}. This technique is called \emph{mutation testing}. A quality measure, \emph{mutation adequacy score}, is used to assess. The mutants are generated from operations such as insert and delete. However, generating and testing a vast amount of mutants can be slow, therefore the efficiency of each operation should be analyzed to approximate the goal methodically.
 
 \subsection{Related Work}
 
-To improve the efficiency of mutation testing, there are three categories of approaches: \emph{do-fewer}, \emph{do-smarter}, and \emph{do-faster}\cite{}. Do-fewer is to minimize the number of mutants while persisting the effectiveness; do-smarter includes distribute the computation task to multiple machines and limit the resource consumption by maintain usable states between tests; and do-faster means reduce the time spent on mutating and testing.
+To improve the efficiency of mutation testing, there are three categories of approaches: \emph{do-fewer}, \emph{do-smarter}, and \emph{do-faster} \cite{untch1995schema}, \cite{offutt2001mutation}. Do-fewer is to minimize the number of mutants while persisting the effectiveness; do-smarter includes distribute the computation task to multiple machines and limit the resource consumption by maintain usable states between tests; and do-faster means reduce the time spent on mutating and testing.
 
-Using deletion operator only is a do-fewer approach. Untch's experiment across four sets of mutation operators including single statement deletion operator (SSDL, with C programs) show that SDL has the best performance in terms of approximating mutation score with minimum mutants\cite{}. Deng et al. further investigated the benefits of SDL with Java-specific method-level implementation\cite{}. In their study, they recognized that [TODO: add their findings] Extending from their research, we study SDL with MutPy, an mutation tester implemented for Python, and conduct experiment on real-world Python projects.
+Using deletion operator only is a do-fewer approach. Untch's experiment across four sets of mutation operators including single statement deletion operator (SSDL, with C programs) show that SDL has the best performance in terms of approximating mutation score with minimum mutants \cite{untch2009reduced}. Deng et al. further investigated the benefits of SDL with Java-specific method-level implementation \cite{deng2013empirical}. In their study, they recognized that [TODO: add their findings] Extending from their research, we study SDL with MutPy, an mutation tester implemented for Python, and conduct experiment on real-world Python projects.
 
 
 \subsection{Our Contribution}
