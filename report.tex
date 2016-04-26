@@ -27,22 +27,13 @@
 
 \defaultspacing
 
+\usepackage{caption} 
+\captionsetup[table]{skip=5pt}
+
 % Custom style end
 
 \title{\textbf{An Evaluation of the Statement Deletion Mutation Operator in Real World Python Projects}}
 \author{Shan Cao, Dongyuan Liu}
-
-% ATTENTION, READER
-% The filecontents thing here is where you put sources.
-% Then, use, eg, \cite{GP} to cite the @misc{GP... item.
-% This does mean compiling is now 3 steps IF you've added new sources:
-% $ pdflatex report.tex
-% This, as a side effect, generates our bib file.
-% $ bibtex report
-% This compiles the bib file
-% $ pdflatex report.tex
-% This incorporates the new bibliography into the report
-% If you haven't changed sources, just use pdflatex report.tex once, it'll be fine.
 
 \begin{document}
 
@@ -68,6 +59,8 @@ we evaluate on real-world Python projects
 \section{MutPy}
 
 \emph{MutPy} is a mutation testing tool for Python projects \cite{mutpy}. We use MutPy for our evaluation.
+
+MutPy has not received any updates since 2014. We have updated it to support Python 3.5, and fixed some issues regarding loading unit tests.
 
 MutPy loads the module to be mutated, transforms it into Python AST, applies mutation operators at the AST level, generates Python code from the AST, and runs the test suite for each mutant.
 
@@ -118,7 +111,28 @@ In Python, \texttt{pass} is a statement that does nothing. MutPy's SDL operator 
 
 \subsection{Methodology}
 
-To collect real world Python projects for evaluation, we chose popular repositories in Python on GitHub. Because MutPy only supports projects with tests based on standard unittest module, we only choose projects using the Python unittest module. We have collected 8 Python projects in total: a, b, c, d, e, f, g, and h. These projects vary size, the smallest has xxx lines of code, the largest has yyy lines of code.
+To collect real world Python projects for evaluation, we chose popular repositories in Python on GitHub. Because MutPy only supports projects with tests based on standard unittest module, we only choose projects using the Python unittest module. We have collected 8 Python projects in total: \emph{python-magic} \cite{python-magic}, \emph{Delorean} \cite{delorean}, \emph{FuzzyWuzzy} \cite{fuzzywuzzy}, \emph{pangu.py} \cite{pangu.py}, \emph{shortuuid} \cite{shortuuid}, \emph{python-slugify} \cite{python-slugify}, \emph{python-nameparser} \cite{python-nameparser}, \emph{python-markdown} \cite{python-markdown}, and \emph{sqlparse} \cite{sqlparse}. These projects vary in size, the smallest (shortuuid) has 355 lines of code, the largest (sqlparse) has 19,434 lines of code.
+
+\begin{table}[H]
+\begin{center}
+\caption{Python projects for evaluation}
+\begin{tabular}{|l|r|l|}
+\hline
+{\bf Project} & {\bf LOC} & {\bf Description} \\
+\hline
+python-magic      & 391   & A Python wrapper for libmagic \\
+Delorean          & 1991  & A library for dealing with datetimes in Python \\
+FuzzyWuzzy        & 1352  & Fuzzy string matching in Python \\
+pangu.py          & 446   & Paranoid text spacing in Python \\
+shortuuid         & 355   & A generator library for UUIDs \\
+python-slugify    & 425   & Returns unicode slugs \\
+python-nameparser & 4027  & Parse human names into individual components \\
+python-markdown   & 8199  & A Python implementation of John Gruber’s Markdown \\
+sqlparse          & 19434 & A non-validating SQL parser module for Python \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 
 For each project we have collected, we did the steps as follows to evaluate:
 
@@ -129,6 +143,10 @@ For each project we have collected, we did the steps as follows to evaluate:
 \end{enumerate}
 
 We run all the tests on a MacBook Pro with Intel i7-4850HQ, OS X 10.11.4, and Python 3.5.1.
+
+\subsection{Results}
+
+
 
 \section{Conclusions}
 
