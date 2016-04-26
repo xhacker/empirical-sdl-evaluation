@@ -47,6 +47,8 @@ Many open-source libraries use test coverage as a measurement of test suite qual
 
 To get deeper knowledge of the flaws, running test set against slightly modified versions of programs is one approach \cite{demillo1978hints}. This technique is called \emph{mutation testing}. A quality measure, \emph{mutation adequacy score}, is used to assess. The mutants are generated from operations such as insert and delete. However, generating and testing a vast amount of mutants can be slow, therefore the efficiency of each operation should be analyzed to approximate the goal methodically.
 
+In this paper, we specifically evaluate the statement deletion mutation operator (SDL). In the rest of the paper, we use \emph{SDL-mutation} and \emph{mutation testing using SDL operator} interchangeably.
+
 \subsection{Related Work}
 
 To improve the efficiency of mutation testing, there are three categories of approaches: \emph{do-fewer}, \emph{do-smarter}, and \emph{do-faster} \cite{untch1995schema}, \cite{offutt2001mutation}. Do-fewer is to minimize the number of mutants while persisting the effectiveness; do-smarter includes distribute the computation task to multiple machines and limit the resource consumption by maintain usable states between tests; and do-faster means reduce the time spent on mutating and testing.
@@ -214,6 +216,14 @@ sqlparse          &  648.03s & 97.45s & 8.49s \\
 \includegraphics[width=15cm]{time}
 \end{center}
 \end{figure}
+
+\subsection{Discussion}
+
+As can be seen in Figure \ref{fig:score}, SDL-mutation score is strongly correlated with mutation score using all operators. It also shows the ineffectiveness of traditional test coverage.
+
+In Figure \ref{fig:time}, we can see that SDL-mutation is significantly faster than full mutation testing.  Based on Table \ref{table:time}, SDL-mutation only takes 6.46\% of the time compared to full mutation testing. It is also obvious to see that SDL-mutation is orders of magnitude slower than running traditional unit test coverage. However, we do think SDL-mutation score has some potential to replace traditional coverage. In most of the projects we have evaluated, SDL-mutation testing could be done in 20 seconds. In the biggest project sqlparse, which has 19,434 lines of code, SDL-mutation testing took 97.45 seconds to run. The performance of SDL-mutation testing is acceptable in scenarios like continuous integration.
+
+There are some cases like python-magic where SDL-mutation takes almost the same amount of time compared with full mutation testing. Our analysis showed that the biggest reason is that sometimes MutPy would form an infinite loop in SDL mutant. For each infinite loop, it takes 5 seconds, which is the timeout value in MutPy, to execute. We have proposed a solution in the Future Work section.
 
 \section{Future Work}
 
