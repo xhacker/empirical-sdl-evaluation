@@ -67,6 +67,8 @@ The previous work we mentioned are all based on the tests created by the researc
 
 The process of MutPy is as follows: loads the module to be mutated, transforms it into Python AST, applies mutation operators at the AST level, generates Python code from the AST, and runs the test suite for each mutant. The statement deletion operator is implemented rather simply. It changes each \emph{assign}, \emph{return}, and \emph{expression} statements in AST to \texttt{pass} statement which does nothing. This may result in limitation of validity in the result, since there should more considerations for various cases in loops and condition blocks. For example, deleting an \texttt{if} block is equivalent to mutate it to \texttt{if False:}, which results in the \texttt{else} block being executed. However this implementation can also be viewed as a choice of design, therefore we chose not to modify it.
 
+This tool also has some limitations in accommodating to general Python projects, because it does not support file input while many projects rely on file-based testing. This restricted the choice of experiment repositories, but we were able to find 9 relatively active and widely used samples.
+
 \subsection{Operators}
 We compared using SDL operator only with using all operators. The other mutation operators MutPy supports are listed below. These operators generate more mutants for testing thus usually result in better overall mutation scores.
 
