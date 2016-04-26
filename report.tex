@@ -116,9 +116,24 @@ In Python, \texttt{pass} is a statement that does nothing. MutPy's SDL operator 
 
 To collect real world Python projects for evaluation, we chose popular repositories in Python on GitHub. Because MutPy only supports projects with tests based on standard unittest module, we only choose projects using the Python unittest module. We have collected 8 Python projects in total: \emph{python-magic} \cite{python-magic}, \emph{Delorean} \cite{delorean}, \emph{FuzzyWuzzy} \cite{fuzzywuzzy}, \emph{pangu.py} \cite{pangu.py}, \emph{shortuuid} \cite{shortuuid}, \emph{python-slugify} \cite{python-slugify}, \emph{python-nameparser} \cite{python-nameparser}, \emph{python-markdown} \cite{python-markdown}, and \emph{sqlparse} \cite{sqlparse}. These projects vary in size, the smallest (shortuuid) has 355 lines of code, the largest (sqlparse) has 19,434 lines of code.
 
+For each project we have collected, we did the steps as follows to evaluate:
+
+\begin{enumerate}
+  \item Use \emph{pytest} \cite{pytest} to run the unit tests, use \emph{pytest-cov} \cite{pytest-cov} to generate coverage report. Record time usage and test coverage.
+  \item Run a full mutation testing using MutPy. Record time usage and mutation score.
+  \item Run a mutation testing with only SDL operator using MutPy. Record time usage and mutation score.
+\end{enumerate}
+
+We run all the tests on a MacBook Pro with Intel i7-4850HQ, OS X 10.11.4, and Python 3.5.1.
+
+\subsection{Results}
+
+Table \ref{table:projects} shows all the projects we used for evaluation, and how many lines of code (LOC) they have.
+
 \begin{table}[H]
 \begin{center}
 \caption{Python projects for evaluation}
+\label{table:projects}
 \begin{tabular}{|l|r|l|}
 \hline
 {\bf Project} & {\bf LOC} & {\bf Description} \\
@@ -137,20 +152,7 @@ sqlparse          & 19434 & A non-validating SQL parser module for Python \\
 \end{center}
 \end{table}
 
-For each project we have collected, we did the steps as follows to evaluate:
-
-\begin{enumerate}
-  \item Use \emph{pytest} \cite{pytest} to run the unit tests, use \emph{pytest-cov} \cite{pytest-cov} to generate coverage report. Record time usage and test coverage.
-  \item Run a full mutation testing using MutPy. Record time usage and mutation score.
-  \item Run a mutation testing with only SDL operator using MutPy. Record time usage and mutation score.
-\end{enumerate}
-
-We run all the tests on a MacBook Pro with Intel i7-4850HQ, OS X 10.11.4, and Python 3.5.1.
-
-\subsection{Results}
-
-
-\section{Further Work}
+\section{Future Work}
 
 Based on our evaluation, we think that there are many potential future work for SDL operator, and mutation testing in general.
 
